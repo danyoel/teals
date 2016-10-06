@@ -8,7 +8,10 @@ Let's review two common ways of moving.
 ## Absolute position
 Some motion blocks tell the sprite **exactly** where to go
 
-INSERT IMAGES
+![Go to x = 0, y = 0](gotoxy-0,0.png)
+![Glide 1 secs to x = 0, y = 0](glide-1s-to-0,0.png)
+![set x to 0](setx-0.png)
+![set y to 0](sety-0.png)
 
 If you're using the glide or go to block, remember that you're telling the sprite a specific and final destination. 
 This destination can be a number like 120 (what we call a **constant** because it doesn't change) or an expression which 
@@ -17,13 +20,14 @@ might include some math.
 ## Relative position
 Some motion blocks tell the sprite how much to change instead of where to go.
 
-INSERT IMAGES
+![change x by 10](changex-10.png)
+![change y by 10](changey-10.png)
 
 In programming, there are often many ways to solve a problem. Sometimes we choose one approach because it's faster to write; 
 sometimes another approach is simpler. For example, do the following scripts do the same thing? Which one is easier to understand?
 Why?
 
-INSERT IMAGES
+![Two ways of setting the x position](setx-compare.png)
 
 Questions to ask when programming your platform game:
 
@@ -47,11 +51,11 @@ platform game, you've already made an easing function, you just didn't know it!
 
 Suppose we want to move our sprite faster and faster. How can we do this? We know there's the change x block:
 
-INSERT IMAGES
+![Script where speed increases linearly](easing-linear.png)
 
 But this always changes by the same amount. The rate of change3 is 10 steps per loop iteration. We call this linear movement. We can go nonlinear which means the rate of change is actually changing. To do this, we have to change the rate every time our loop runs.
 
-INSERT IMAGES
+![Script where speed increases nonlinearly](easing-nonlinear.png)
 
 What happens when you run this script? By how much does the sprite move the first time? Can you make it so the sprite speeds up and then slows down?
 
@@ -59,14 +63,13 @@ If you're comfortable with equations, you can even use an easing function to det
 
 A quadratic easing function uses a quadratic equation (not the quadratic formula!!)  to change the speed as a function of time. Just like you wrote functions like y = x2 in algebra class, we can write a function like:
 
-INSERT EQN IMAGE
-speed=10−1/10 〖time〗^2
+![Equation](speed-eqn.png)
 
 [Play with this formula online.](http://www.wolframalpha.com/input/?i=plot+s+%3D+10+-+1%2F10+*+t%5E2++when+t+goes+from+0+to+10) When time is 0, what is speed? When (time) does speed become 5? Overall, what is happening to speed over time? Is it slowing down (getting smaller) or speeding up (getting larger)? How would you change the formula to make the opposite effect?
 
 Finally, try making your sprite move by using the easing function in a loop. Hint: you want to change x by the value of the easing function, not change speed by that value.
 
-There are other easing functions like sine waves, sawtooth, etc. You can even see some special effects like backing, bouncing, elasticity, etc.
+There are other easing functions like sine waves, sawtooth, etc. You can even see some special effects like [backing](http://gilmoreorless.github.io/sydjs-preso-easing/#cemd-anim-back), [bouncing](http://gilmoreorless.github.io/sydjs-preso-easing/#cemd-anim-bounce), [elasticity](http://gilmoreorless.github.io/sydjs-preso-easing/#cemd-anim-elastic), etc.
 
 Footnotes for science geeks:
 
