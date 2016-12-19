@@ -1,0 +1,40 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+  <block-definition s="show YouTube video with %&apos;id&apos;" type="command" category="looks">
+    <comment w="191" collapsed="false">Shows a YouTube player on the stage for the video with the ID parameter</comment>
+    <header></header>
+    <code></code>
+    <inputs>
+      <input type="%s"></input>
+    </inputs>
+    <script>
+      <block s="doRun">
+        <block s="reportJSFunction">
+          <list>
+            <l>id</l>
+          </list>
+          <l>var playDiv = document.getElementById("player");&#xD;if (!playDiv) {&#xD;    playDiv = document.createElement("iframe");&#xD;    playDiv.id = "player";&#xD;    playDiv.style.zIndex = 2;&#xD;    playDiv.width = "480";&#xD;    playDiv.height = "300";&#xD;    playDiv.style.position = "absolute";&#xD;    playDiv.style.top = "30px";&#xD;    playDiv.style.right = "0px";&#xD;    document.body.appendChild(playDiv);&#xD;}&#xD;playDiv.src = "http://www.youtube.com/embed/" + id + "?enablejsapi=1&amp;autoplay=1&amp;origin=http://snap.berkeley.edu";</l>
+        </block>
+        <list>
+          <block var="id"/>
+        </list>
+      </block>
+    </script>
+  </block-definition>
+  <block-definition s="close YouTube video" type="command" category="looks">
+    <comment w="134" collapsed="false">Removes YouTube video player from the stage</comment>
+    <header></header>
+    <code></code>
+    <inputs></inputs>
+    <script>
+      <block s="doRun">
+        <block s="reportJSFunction">
+          <list>
+            <l></l>
+          </list>
+          <l>var playDiv = document.getElementById("player");&#xD;if (playDiv)&#xD;    document.body.removeChild(playDiv);</l>
+        </block>
+        <list></list>
+      </block>
+    </script>
+  </block-definition>
+</blocks>
