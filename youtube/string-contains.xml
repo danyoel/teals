@@ -1,0 +1,37 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+  <block-definition s="%&apos;text&apos; contains %&apos;keyword&apos; ?" type="predicate" category="operators">
+    <comment x="0" y="0" w="127.6923076923077" collapsed="false">Tests if the text contains the keyword text</comment>
+    <header></header>
+    <code></code>
+    <inputs>
+      <input type="%txt"></input>
+      <input type="%txt"></input>
+    </inputs>
+    <script>
+      <block s="doDeclareVariables">
+        <list>
+          <l>contains</l>
+        </list>
+      </block>
+      <block s="doSetVar">
+        <l>contains</l>
+        <block s="reportJSFunction">
+          <list>
+            <l>haystack</l>
+            <l>needle</l>
+          </list>
+          <l>return haystack.indexOf(needle) &gt;= 0;</l>
+        </block>
+      </block>
+      <block s="doReport">
+        <block s="evaluate">
+          <block var="contains"/>
+          <list>
+            <block var="text"/>
+            <block var="keyword"/>
+          </list>
+        </block>
+      </block>
+    </script>
+  </block-definition>
+</blocks>
